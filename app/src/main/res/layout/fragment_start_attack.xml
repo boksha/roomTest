@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+    <Button
+        android:id="@+id/attack_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_start_attack"
+        android:layout_centerInParent="true"
+        />
+
+    <TextView android:layout_height="wrap_content"
+        android:layout_width="wrap_content"
+        android:id="@+id/attack_counter"
+        android:layout_below="@id/attack_btn"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/add_attack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/azul"
+        app:srcCompat="@drawable/ic_add_white" />
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/reminder"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        app:backgroundTint="@color/aqual_marine_2"
+        app:srcCompat="@drawable/ic_alarm_white" />
+</RelativeLayout>

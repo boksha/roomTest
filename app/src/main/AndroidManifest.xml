@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.miodragmilosevic.roomtest">
+
+    <application
+        android:name=".EpilepsyTrackerApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_new"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_new_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppThemeWithToolBar">
+        <activity
+            android:name=".mainscreen.MainActivity"
+            android:label="@string/app_name" />
+        <activity
+            android:parentActivityName=".mainscreen.MainActivity"
+            android:name=".createattackrecord.CreateAttackRecordActivity" />
+        <activity android:name=".attackdetails.AttackDetailsActivity"
+            android:parentActivityName=".mainscreen.MainActivity"
+            android:label="@string/title_attack_details"
+            />
+        <activity
+            android:name=".launchscreen.LauncherActivity"
+            android:theme="@style/AppThemeFullScreen">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".registration.RegistrationActivity" />
+        <activity
+            android:name=".settings.SettingsListActivity"
+            android:label="@string/title_settings_list"
+            android:parentActivityName=".mainscreen.MainActivity" />
+        <activity
+            android:name=".settings.adjustattacktypes.AdjustAttackTypesActivity"
+            android:label="@string/title_settings_attack_types"
+
+            android:parentActivityName=".settings.SettingsListActivity" />
+        <activity
+            android:name=".settings.adjustattacklocations.AdjustAttackLocationActivity"
+            android:label="@string/title_settings_location"
+            android:parentActivityName=".settings.SettingsListActivity" />
+        <activity
+            android:name=".settings.adjustattackactivities.AdjustAttackActivitiesActivity"
+            android:label="@string/title_settings_activities"
+
+            android:parentActivityName=".settings.SettingsListActivity" />
+        <activity
+            android:name=".settings.AdjustAttackMedicamentsActivity"
+            android:label="@string/title_settings_medicaments"
+
+            android:parentActivityName=".settings.SettingsListActivity" />
+        <activity
+            android:name=".settings.adjustattackcause.AdjustAttackCauseActivity"
+            android:label="@string/title_settings_medicaments"
+
+            android:parentActivityName=".settings.SettingsListActivity" />
+        <activity
+            android:label="@string/title_attack_list"
+            android:parentActivityName=".mainscreen.MainActivity"
+            android:name=".attacklist.AttacksListActivity" />
+    </application>
+
+</manifest>

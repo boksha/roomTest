@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="attack_location">
+        <item>@string/attack_location_1</item>
+        <item>@string/attack_location_2</item>
+        <item>@string/attack_location_3</item>
+        <item>@string/attack_location_4</item>
+        <item>@string/attack_location_5</item>
+        <item>@string/attack_location_6</item>
+    </string-array>
+
+    <string-array name="attack_type">
+        <item>@string/attack_type_1</item>
+        <item>@string/attack_type_2</item>
+        <item>@string/attack_type_3</item>
+        <item>@string/attack_type_4</item>
+        <item>@string/attack_type_5</item>
+        <item>@string/attack_type_6</item>
+        <item>@string/attack_type_7</item>
+        <item>@string/attack_type_8</item>
+        <item>@string/attack_type_9</item>
+        <item>@string/attack_type_10</item>
+        <item>@string/attack_type_11</item>
+        <item>@string/attack_type_12</item>
+        <item>@string/attack_type_13</item>
+        <item>@string/attack_type_14</item>
+        <item>@string/attack_type_15</item>
+    </string-array>
+
+    <string-array name="activity_before_attack">
+        <item>@string/attack_activity_1</item>
+        <item>@string/attack_activity_2</item>
+        <item>@string/attack_activity_3</item>
+        <item>@string/attack_activity_4</item>
+        <item>@string/attack_activity_5</item>
+        <item>@string/attack_activity_6</item>
+        <item>@string/attack_activity_7</item>
+        <item>@string/attack_activity_8</item>
+        <item>@string/attack_activity_9</item>
+        <item>@string/attack_activity_10</item>
+    </string-array>
+
+    <string-array name="possible_cause_of_attack">
+        <item>@string/attack_cause_1</item>
+        <item>@string/attack_cause_2</item>
+        <item>@string/attack_cause_3</item>
+        <item>@string/attack_cause_4</item>
+        <item>@string/attack_cause_5</item>
+        <item>@string/attack_cause_6</item>
+        <item>@string/attack_cause_7</item>
+        <item>@string/attack_cause_8</item>
+        <item>@string/attack_cause_9</item>
+        <item>@string/attack_cause_10</item>
+        <item>@string/attack_cause_11</item>
+    </string-array>
+
+    <string-array name="medicaments">
+        <item>Fenobarbital</item>
+        <item>Etosuksimid</item>
+        <item>Klonazepam</item>
+        <item>Karbamazepin</item>
+        <item>Okskarbazepin</item>
+        <item>Eslikarbazepinacetat</item>
+        <item>Valproinska kiselina</item>
+        <item>Lamotrigin</item>
+        <item>Topiramat</item>
+        <item>Gabapentin</item>
+        <item>Levetiracetam</item>
+        <item>Pregabalin</item>
+    </string-array>
+
+    <string-array name="drawer_titles">
+        <item>@string/drawer_title_registration</item>
+        <item>@string/drawer_title_settings</item>
+        <item>@string/drawer_title_about</item>
+        <!--<item>Products Search</item>-->
+        <!--<item>Barcode Scanner</item>-->
+        <!--<item>Sales</item>-->
+        <!--<item>Weekly Specials</item>-->
+        <!--<item>My Shopping List</item>-->
+        <!--<item>Recipes</item>-->
+        <!--<item>Shopping Cart</item>-->
+        <!--<item>Order History</item>-->
+    </string-array>
+
+    <array name="drawer_icons">
+        <!--<item>@drawable/image 1</item>-->
+        <!--<item>@drawable/image 2</item>-->
+        <!--<item>@drawable/image 3</item>-->
+        <!--<item>@drawable/image 4</item>-->
+        <!--<item>@drawable/image 5</item>-->
+        <!--<item>@drawable/image 6</item>-->
+        <!--<item>@drawable/image 7</item>-->
+        <!--<item>@drawable/image 8</item>-->
+        <!--<item>@drawable/image 9</item>-->
+        <!--<item>@drawable/image 10</item>-->
+    </array>
+    <array name="settings_list_tems">
+        <item>@string/drawer_item_adjust_attack_types</item>
+        <item>@string/drawer_item_adjust_attack_locations</item>
+        <item>@string/drawer_item_adjust_activities_before_attack</item>
+        <item>@string/drawer_item_adjust_medicaments</item>
+        <item>@string/drawer_item_adjust_possible_cause</item>
+    </array>
+<!--not used-->
+    <string name="drawer_title_registration">registracija</string>
+    <string name="drawer_title_settings">podesavanja</string>
+    <string name="drawer_title_about">o nama</string>
+</resources>

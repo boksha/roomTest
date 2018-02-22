@@ -1,0 +1,110 @@
+<resources>
+    <string name="app_name">EPI.APP</string>
+    <!--bottom navigation-->
+    <string name="title_home">Home</string>
+    <string name="title_attacks">Attacks</string>
+    <string name="title_alarm">Alarm</string>
+    <!--home screen-->
+    <string name="btn_start_attack">START</string>
+    <string name="btn_stop_attack">STOP</string>
+    <string name="title_date_of_attack">Datum napada</string>
+    <string name="hint_choose_date">Izaberi datum</string>
+    <string name="title_attack_duration">Trajanje</string>
+    <string name="hint_choose_time">Izabari trajanje</string>
+    <string name="hint_attack_description">Upiši opis napada</string>
+    <string name="btn_save_epi_attack">Sačuvaj</string>
+    <!--Detailes screen-->
+    <string name="title_attack_details">Detalji napada</string>
+    <string name="btn_delete_epi_attack">Obriši napad</string>
+    <string name="btn_change_epi_attack">Izmeni</string>
+    <!--launch activity-->
+    <string name="launch_screen_message">endava</string>
+    <!--list of attacks activity-->
+    <string name="title_attack_list">Lista napada</string>
+    <!--create attack record activity-->
+    <string name="title_manual_insert">Unesi ručno</string>
+    <string name="title_create_record">Registruj napad</string>
+    <!--Navigation Drawer-->
+    <string name="drawer_subtitle_personal_data">OSNOVNI PODACI</string>
+    <string name="drawer_item_personal_info">Lične informacije</string>
+    <string name="drawer_item_illness_history">Istorija bolesti</string>
+    <!--<string name="drawer_item_previous_therapy">Dosadasnja terapija</string>-->
+    <!--<string name="drawer_item_current_therapy">Aktuelna terapija</string>-->
+    <string name="drawer_item_therapy">Terapija</string>
+    <string name="drawer_item_gathered_illness">Udružene bolesti</string>
+    <string name="drawer_item_epi_factors">Faktori za epilepsiju</string>
+    <string name="drawer_item_functionalities">Funkcionalnost i ispitivanja</string>
+    <string name="drawer_subtitle_settings">PODEŠAVANJA</string>
+    <string name="drawer_item_reminder">Podsetnik</string>
+    <string name="drawer_item_delete_all">Obriši sve</string>
+    <string name="drawer_item_logout">Odjava</string>
+
+    <string name="drawer_item_adjust_attack_types">Lista napada</string>
+    <string name="drawer_item_adjust_attack_locations">Lokacija napada</string>
+    <string name="drawer_item_adjust_activities_before_attack">Aktivnosti</string>
+    <string name="drawer_item_adjust_medicaments">Lista lekova</string>
+    <string name="drawer_item_adjust_possible_cause">Prilagodi listu uzroka napada</string>
+
+    <string name="drawer_open">Otvori  navigaciju</string>
+    <string name="drawer_close">Zatvori navigaciju</string>
+    <!--settings -->
+    <string name="title_settings_list">lista podešavanja</string>
+    <string name="title_settings_location">lista lokacija</string>
+    <string name="title_settings_possible_cause">lista uzroka napada</string>
+    <string name="title_settings_medicaments">lista lekova</string>
+    <string name="title_settings_activities">aktivnosti</string>
+    <string name="title_settings_attack_types">tipovi napada</string>
+<!--attack types - saved by resource name in db, names can not be changed after app launch!!!!-->
+    <string name="attack_type_1">Odsutnost</string>
+    <string name="attack_type_2">Atonski</string>
+    <string name="attack_type_3">Atipična odsutnost</string>
+    <string name="attack_type_4">Samo aura</string>
+    <string name="attack_type_5">Klonički</string>
+    <string name="attack_type_6">Kompleksno parcijalni</string>
+    <string name="attack_type_7">Mioklonski</string>
+    <string name="attack_type_8">Mioklonski klasteri</string>
+    <string name="attack_type_9">Gelastički</string>
+    <string name="attack_type_10">Infantilni grc</string>
+    <string name="attack_type_11">Sekundarno generalizovani</string>
+    <string name="attack_type_12">Jednostavno parcijalni</string>
+    <string name="attack_type_13">Tonski</string>
+    <string name="attack_type_14">Tonično klonski</string>
+    <string name="attack_type_15">Ostalo</string>
+    <!--location types - saved by resource name in db, names can not be changed after app launch!!!!-->
+    <string name="attack_location_1">Kuća</string>
+    <string name="attack_location_2">Škola</string>
+    <string name="attack_location_3">Radno mesto</string>
+    <string name="attack_location_4">Teretana</string>
+    <string name="attack_location_5">Napolju</string>
+    <string name="attack_location_6">Ostalo</string>
+    <!--Attack activities- saved by resource name in db, names can not be changed after app launch!!!!-->
+    <string name="attack_activity_1">Utonuce u san</string>
+    <string name="attack_activity_2">Spavanje</string>
+    <string name="attack_activity_3">Buđenje</string>
+    <string name="attack_activity_4">Učenje</string>
+    <string name="attack_activity_5">Radna aktivnost</string>
+    <string name="attack_activity_6">Vežbanje</string>
+    <string name="attack_activity_7">Gledanje televizije</string>
+    <string name="attack_activity_8">Telefon</string>
+    <string name="attack_activity_9">Računar</string>
+    <string name="attack_activity_10">Ostalo</string>
+    <!--Attack cause- saved by resource name in db, names can not be changed after app launch!!!!-->
+    <string name="attack_cause_1">Konzumiranje alkohola</string>
+    <string name="attack_cause_2">Korišćenje nedozvoljenih lekova</string>
+    <string name="attack_cause_3">Povišena temperatura</string>
+    <string name="attack_cause_4">Blješćuće svetlo</string>
+    <string name="attack_cause_5">Povišeni ketoni</string>
+    <string name="attack_cause_6">Fluktuacija hormona</string>
+    <string name="attack_cause_7">Promena leka</string>
+    <string name="attack_cause_8">Lek nije uzet na vreme</string>
+    <string name="attack_cause_9">Nedostatak sna</string>
+    <string name="attack_cause_10">Stres</string>
+    <string name="attack_cause_11">Ostalo</string>
+
+    <!--actionbar actions title-->
+    <string name="action_reset_to_default">vrati fabrička podešavanja</string>
+    <string name="action_add_new">dodaj novi</string>
+    <string name="action_attacks_list">dodaj napad</string>
+    <string name="btn_add_epi_attack">Dodaj napad</string>
+
+</resources>

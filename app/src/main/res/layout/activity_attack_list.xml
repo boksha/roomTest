@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/detailes_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+
+    <!-- Load the toolbar here -->
+    <include
+        android:id="@+id/toolbar_container"
+        layout="@layout/toolbar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_attack_list"
+        android:layout_above="@+id/btn_add_epy_attack"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/toolbar_container"
+        android:orientation="vertical" />
+    <Button
+        android:id="@id/btn_add_epy_attack"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:fontFamily="@font/montserrat_semibold_fonts"
+        android:background="@drawable/blue_gradient"
+        android:textColor="@color/white"
+        android:textAllCaps="true"
+        android:textSize="14dp"
+        android:text="@string/btn_add_epi_attack" />
+</RelativeLayout>

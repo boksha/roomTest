@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/attack_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+
+    <TextView
+        android:id="@+id/attack_day_of_month"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/montserrat_semibold_fonts" />
+
+    <TextView
+        android:id="@+id/attack_day_of_week"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/attack_day_of_month"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat_medium_fonts" />
+
+    <TextView
+        android:id="@+id/attack_type"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/attack_day_of_month"
+        android:layout_marginLeft="12dp"
+        android:layout_toRightOf="@id/attack_day_of_month"
+        android:fontFamily="@font/montserrat_medium_fonts" />
+
+    <TextView
+        android:id="@+id/attack_duration"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/attack_type"
+        android:layout_below="@id/attack_type"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/montserrat_medium_fonts" />
+</RelativeLayout>

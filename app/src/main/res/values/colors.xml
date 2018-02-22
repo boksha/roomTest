@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#ff953f</color>
+    <color name="colorPrimaryDark">#383735</color>
+    <color name="colorAccent">#ff5d40</color>
+    <color name="aqual_marine">#24e2f0</color>
+    <color name="aqual_marine_2">#44d5e4</color>
+    <color name="black_16">#16000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="white_40">#6effffff</color>
+    <color name="windows_blue">#3958ca</color>
+    <color name="azul">#256de9</color>
+</resources>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:title="@string/drawer_subtitle_personal_data">
+        <menu>
+            <item
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/nav_personal_info"
+                android:title="@string/drawer_item_personal_info" />
+
+            <item
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/nav_illnes_history"
+                android:title="@string/drawer_item_illness_history" />
+            <item
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/nav_previous_therapy"
+                android:title="@string/drawer_item_therapy" />
+            <!--<item-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:id="@+id/nav_current_therapy"-->
+                <!--android:title="@string/drawer_item_current_therapy" />-->
+
+
+            <item
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/nav_epi_factors"
+                android:title="@string/drawer_item_epi_factors" />
+
+            <item
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/nav_gathered_illness"
+                android:title="@string/drawer_item_gathered_illness" />
+            <!--<item-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:id="@+id/nav_functionalities"-->
+                <!--android:title="@string/drawer_item_functionalities" />-->
+
+        </menu>
+    </item>
+    <item
+        android:title="@string/drawer_subtitle_settings">
+        <menu>
+            <item
+                android:icon="@drawable/ic_content_paste_white_40"
+                android:id="@+id/nav_adjust_attack_types"
+                android:title="@string/drawer_item_adjust_attack_types" />
+
+            <item
+                android:icon="@drawable/ic_pin_drop_white_40"
+                android:id="@+id/nav_adjust_attack_locations"
+                android:title="@string/drawer_item_adjust_attack_locations" />
+
+            <item
+                android:icon="@drawable/ic_directions_run_white_40"
+                android:id="@+id/nav_adjust_activities_before_attack"
+                android:title="@string/drawer_item_adjust_activities_before_attack" />
+
+            <item
+                android:icon="@drawable/ic_home_black_24dp"
+                android:id="@+id/nav_adjust_possible_causes"
+                android:title="@string/drawer_item_adjust_possible_cause" />
+
+            <item
+                android:icon="@drawable/ic_list_white_40"
+                android:id="@+id/nav_adjust_medicaments"
+                android:title="@string/drawer_item_adjust_medicaments" />
+            <item
+                android:icon="@drawable/ic_alarm_white_40"
+                android:id="@+id/nav_reminder"
+                android:title="@string/drawer_item_reminder" />
+            <item
+                android:icon="@drawable/ic_delete_white_40"
+                android:id="@+id/nav_delete_all"
+                android:title="@string/drawer_item_delete_all" />
+
+            <item
+                android:id="@+id/nav_logout"
+                android:title="@string/drawer_item_logout" />
+            <!--<item-->
+                <!--android:id="@+id/nav_previous_therapy"-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:title="@string/drawer_item_previous_therapy" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_current_therapy"-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:title="@string/drawer_item_current_therapy" />-->
+
+            <!--<item-->
+                <!--android:id="@+id/nav_gathered_illness"-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:title="@string/drawer_item_gathered_illness" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_epi_factors"-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:title="@string/drawer_item_epi_factors" />-->
+            <!--<item-->
+                <!--android:id="@+id/nav_functionalities"-->
+                <!--android:icon="@drawable/ic_home_black_24dp"-->
+                <!--android:title="@string/drawer_item_functionalities" />-->
+
+        </menu>
+    </item>
+</menu>
