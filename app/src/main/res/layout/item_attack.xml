@@ -1,39 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/attack_layout"
     android:layout_width="wrap_content"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:paddingLeft="16dp"
+    android:paddingRight="16dp"
+    android:paddingTop="8dp">
 
 
     <TextView
         android:id="@+id/attack_day_of_month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/montserrat_semibold_fonts" />
+        android:textColor="@color/grayish_brown"
+        android:fontFamily="@font/montserrat_semibold_fonts"
+        android:textSize="24dp" />
 
     <TextView
         android:id="@+id/attack_day_of_week"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/attack_day_of_month"
-        android:layout_marginTop="4dp"
-        android:fontFamily="@font/montserrat_medium_fonts" />
+        android:textColor="@color/gray_blue"
+        android:fontFamily="@font/montserrat_medium_fonts"
+        android:textSize="14dp" />
 
     <TextView
         android:id="@+id/attack_type"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignTop="@id/attack_day_of_month"
-        android:layout_marginLeft="12dp"
-        android:layout_toRightOf="@id/attack_day_of_month"
-        android:fontFamily="@font/montserrat_medium_fonts" />
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/attack_day_of_week"
+        android:fontFamily="@font/montserrat_medium_fonts"
+        android:textSize="18dp" />
 
     <TextView
         android:id="@+id/attack_duration"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/attack_day_of_week"
         android:layout_alignLeft="@id/attack_type"
         android:layout_below="@id/attack_type"
+        android:textColor="@color/grayish_brown"
         android:layout_marginTop="4dp"
-        android:fontFamily="@font/montserrat_medium_fonts" />
+        android:fontFamily="@font/montserrat_medium_fonts"
+        android:textSize="14dp" />
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        app:srcCompat="@drawable/ic_navigate_next"
+        android:tint="@color/gray_blue" />
+    <View
+        android:id="@+id/item_divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_below="@id/attack_duration"
+        android:layout_marginTop="8dp"
+        android:background="@color/white_2" />
 </RelativeLayout>

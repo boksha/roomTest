@@ -3,6 +3,7 @@ package com.example.miodragmilosevic.roomtest.db.entity;
 import android.arch.persistence.room.ColumnInfo;
 import android.arch.persistence.room.Entity;
 import android.arch.persistence.room.Ignore;
+import android.arch.persistence.room.Index;
 import android.arch.persistence.room.PrimaryKey;
 import android.support.annotation.Nullable;
 
@@ -11,7 +12,8 @@ import android.support.annotation.Nullable;
  */
 
 
-@Entity(tableName = "attack_types")
+@Entity(tableName = "attack_types",indices = {@Index(value = {"attack_type"},
+        unique = true)})
 public class EpiAttackType {
 
     @PrimaryKey(autoGenerate = true)

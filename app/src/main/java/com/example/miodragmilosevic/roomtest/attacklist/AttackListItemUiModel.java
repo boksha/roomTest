@@ -9,7 +9,26 @@ import android.arch.persistence.room.PrimaryKey;
 public class AttackListItemUiModel {
     private long id;
     private long startTime = -1;
+
+    public long getDayOfMonth() {
+        return dayOfMonth;
+    }
+
+    public void setDayOfMonth(long dayOfMonth) {
+        this.dayOfMonth = dayOfMonth;
+    }
+
+    private long dayOfMonth = -1;
     private String elapsedTime;
+    private String dayOfWeek;
+
+    public String getDayOfWeek() {
+        return dayOfWeek;
+    }
+
+    public void setDayOfWeek(String dayOfWeek) {
+        this.dayOfWeek = dayOfWeek;
+    }
 
     public long getId() {
         return id;

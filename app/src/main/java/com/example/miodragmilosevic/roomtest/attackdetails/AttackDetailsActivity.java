@@ -3,16 +3,24 @@ package com.example.miodragmilosevic.roomtest.attackdetails;
 import android.arch.lifecycle.ViewModelProviders;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Spinner;
 
+import com.example.miodragmilosevic.roomtest.common.dialog.AlertDialogFragment;
 import com.example.miodragmilosevic.roomtest.R;
+import com.example.miodragmilosevic.roomtest.base.BaseSpinnerAdapter;
 import com.example.miodragmilosevic.roomtest.base.BaseToolbarActivity;
+import com.example.miodragmilosevic.roomtest.base.BaseUiListItem;
 import com.example.miodragmilosevic.roomtest.db.AppDataBase;
+
+import java.util.ArrayList;
 
 /**
  * Created by miodrag.milosevic on 2/7/2018.
@@ -23,12 +31,24 @@ public class AttackDetailsActivity extends BaseToolbarActivity {
     private static final String TAG = "Miki";
     public static final String EXTRA_ATTACK_ID = "AttackId";
     public static final String KEY_SAVED_ATTACK_ID = "SavedAttackId";
+    private static final String DELETE_DIALOG_TAG = "deleteDialog";
 
     private EditText mDateValue;
     private EditText mTimeValue;
     private EditText mDescription;
     private AttackDetailsViewModel mViewModel;
+    private ArrayAdapter<BaseUiListItem> mLocationAdapter;
+    private ArrayAdapter<BaseUiListItem> mTypeAdapter;
+    private ArrayAdapter<BaseUiListItem> mCauseAdapter;
+    private ArrayAdapter<BaseUiListItem> mActivityAdapter;
+    private ArrayAdapter<BaseUiListItem> mMedicamentAdapter;
     private long mAttackId = -1;
+    private AlertDialogFragment.OnPositiveClickListener mOnDeleteListener = new AlertDialogFragment.OnPositiveClickListener() {
+        @Override
+        public void onClick() {
+            mViewModel.onDeleteButtonClick();
+        }
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +69,10 @@ public class AttackDetailsActivity extends BaseToolbarActivity {
 
         }
         mViewModel = ViewModelProviders.of(this,
-                new AttackDetailsViewModel.Factory(
-                        new AttackDetailsRepository(AppDataBase.get(this.getApplicationContext()).getEpiAttackDao()), mAttackId))
+                new AttackDetailsViewModel.Factory(this,
+                        new AttackDetailsRepository(AppDataBase.get(this.getApplicationContext()).getEpiAttackDao(),
+                                AppDataBase.get(this.getApplicationContext()).getEpiAttackResourceDao()
+                        ), mAttackId))
                 .get(AttackDetailsViewModel.class);
         mViewModel.getLiveData().observe(this, viewData ->
         {//TODO
@@ -92,13 +114,18 @@ public class AttackDetailsActivity extends BaseToolbarActivity {
 //                    }
 //                }
 //        );
+        initLocationSpinner();
+        initActivitySpinner();
+        initMedicamentSpinner();
+        initAttackTypeSpinner();
+        initAttackCauseSpinner();
         Button changeRecord = findViewById(R.id.btn_change_epy_attack);
         changeRecord.setOnClickListener(view -> {
             mViewModel.onChangeButtonClick();
         });
         Button deleteRecord = findViewById(R.id.btn_delete_epy_attack);
         deleteRecord.setOnClickListener(view -> {
-            mViewModel.onDeleteButtonClick();
+            showDeleteDialog();
         });
 //        if (intent != null) {
 //            long startTime = intent.getLongExtra(EXTRA_START_TIME, -1);
@@ -115,8 +142,19 @@ public class AttackDetailsActivity extends BaseToolbarActivity {
         return R.layout.activity_attack_detailes;
     }
 
-
-
+    private void showDeleteDialog() {
+        AlertDialogFragment deleteDialog = AlertDialogFragment.newInstance(R.string.title_dialog_delete,R.string.message_delete);
+        deleteDialog.setOnPositiveClickListener(mOnDeleteListener);
+        deleteDialog.show(getSupportFragmentManager(), DELETE_DIALOG_TAG);
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        AlertDialogFragment dialog = (AlertDialogFragment) getSupportFragmentManager().findFragmentByTag(DELETE_DIALOG_TAG);
+        if (dialog != null) {
+            dialog.setOnPositiveClickListener(mOnDeleteListener);
+        }
+    }
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         outState.putLong(KEY_SAVED_ATTACK_ID,mAttackId);
@@ -135,31 +173,137 @@ public class AttackDetailsActivity extends BaseToolbarActivity {
                 return super.onOptionsItemSelected(item);
         }
     }
-//    } private void initLocationSpinner() {
-//        Spinner locationSpinner = (Spinner) findViewById(R.id.location_spinner);
-//// Create an ArrayAdapter using the string array and a default spinner layout
-//        // Application of the Array to the Spinner
-////        ArrayAdapter<String> spinnerArrayAdapter = new ArrayAdapter<String>(this,   android.R.layout.simple_spinner_item, colors);
-////        spinnerArrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item); // The drop down view
-////        spinner.setAdapter(spinnerArrayAdapter);
-//        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
-//                R.array.attack_location, android.R.layout.simple_spinner_item);
-//// Specify the layout to use when the list of choices appears
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//// Apply the adapter to the spinner
-//        locationSpinner.setAdapter(adapter);
-//        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                Log.i(TAG, "onItemSelected: locationSPinner" + parent.getItemAtPosition(position) + " " + id);
-//                mViewModel.onLocationSelected((String) parent.getItemAtPosition(position));
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                Log.i(TAG, "onNothingSelected: locationSPinner");
-//
-//            }
-//        });
+    private void initLocationSpinner() {
+        Spinner locationSpinner = findViewById(R.id.location_spinner);
+        mLocationAdapter = new BaseSpinnerAdapter(this, R.layout.spinner_item, new ArrayList<>());
+        mViewModel.getSpinnerLocationLiveData().observe(this, viewData ->
+                {
+                    mLocationAdapter.clear();
+                    mLocationAdapter.addAll(viewData);
+                }
+        );
+        mLocationAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        locationSpinner.setAdapter(mLocationAdapter);
+        locationSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(TAG, "onItemSelected: locationSPinner" + parent.getItemAtPosition(position) + " " + id);
+                mViewModel.onLocationSelected((BaseUiListItem) parent.getItemAtPosition(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.i(TAG, "onNothingSelected: locationSPinner");
+
+            }
+        });
+    }
+
+    private void initMedicamentSpinner() {
+        Spinner medicamentSpinner = (Spinner) findViewById(R.id.cure_spinner);
+        //TODO change this to medicament list when is defined!!!!! Miki
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
+                R.array.medicaments, R.layout.spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        medicamentSpinner.setAdapter(adapter);
+        medicamentSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(TAG, "onItemSelected: medicamentSpinner" + parent.getItemAtPosition(position) + " " + id);
+                mViewModel.onMedicamentSelected((String) parent.getItemAtPosition(position));
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.i(TAG, "onNothingSelected: medicamentSpinner");
+
+            }
+        });
+    }
+
+    private void initAttackTypeSpinner() {
+        Spinner attackTypeSpinner = findViewById(R.id.attack_type_spinner);
+        mTypeAdapter = new BaseSpinnerAdapter(this, R.layout.spinner_item, new ArrayList<>());
+        mViewModel.getSpinnerTypeLiveData().observe(this, viewData ->
+                {
+                    mTypeAdapter.clear();
+                    mTypeAdapter.addAll(viewData);
+                }
+        );
+
+        mTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        attackTypeSpinner.setAdapter(mTypeAdapter);
+        attackTypeSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(TAG, "onItemSelected: attackTypeSpinner" + parent.getItemAtPosition(position) + " " + id);
+                mViewModel.onAttackTypeSelected((BaseUiListItem) parent.getItemAtPosition(position));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.i(TAG, "onNothingSelected: attackTypeSpinner");
+
+            }
+        });
+    }
+
+    private void initAttackCauseSpinner() {
+        Spinner attackCauseSpinner = findViewById(R.id.possible_cause_spinner);
+        mCauseAdapter = new BaseSpinnerAdapter(this, R.layout.spinner_item, new ArrayList<>());
+        mViewModel.getSpinnerCauseLiveData().observe(this, viewData ->
+                {
+                    mCauseAdapter.clear();
+                    mCauseAdapter.addAll(viewData);
+                }
+        );
+
+        mCauseAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        attackCauseSpinner.setAdapter(mCauseAdapter);
+        attackCauseSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(TAG, "onItemSelected: attackCauseSpinner" + parent.getItemAtPosition(position) + " " + id);
+                mViewModel.onAttackCauseSelected((BaseUiListItem) parent.getItemAtPosition(position));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.i(TAG, "onNothingSelected: attackCauseSpinner");
+
+            }
+        });
+    }
+
+    private void initActivitySpinner() {
+        Spinner activitySpinner = (Spinner) findViewById(R.id.activity_spinner);
+        mActivityAdapter = new BaseSpinnerAdapter(this, R.layout.spinner_item, new ArrayList<>());
+        mViewModel.getSpinnerActivityLiveData().observe(this, viewData ->
+                {
+                    mActivityAdapter.clear();
+                    mActivityAdapter.addAll(viewData);
+                }
+        );
+
+        mActivityAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        activitySpinner.setAdapter(mActivityAdapter);
+        activitySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                Log.i(TAG, "onItemSelected: activitySpinner" + parent.getItemAtPosition(position) + " " + id);
+                mViewModel.onActivitySelected((BaseUiListItem) parent.getItemAtPosition(position));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                Log.i(TAG, "onNothingSelected: activitySpinner");
+
+            }
+        });
+    }
+
 }
 

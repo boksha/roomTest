@@ -6,9 +6,15 @@
     <color name="aqual_marine">#24e2f0</color>
     <color name="aqual_marine_2">#44d5e4</color>
     <color name="black_16">#16000000</color>
+    <color name="black">#000000</color>
+    <color name="gray_blue">#8390be</color>
+    <color name="grayish_brown">#444444</color>
+    <color name="pale_gray">#f3f3f5</color>
+    <color name="white_2">#eaeaea</color>
     <color name="transparent">#00000000</color>
     <color name="white">#ffffff</color>
     <color name="white_40">#6effffff</color>
     <color name="windows_blue">#3958ca</color>
+    <color name="mid_blue">#399cca</color>
     <color name="azul">#256de9</color>
 </resources>

@@ -57,7 +57,7 @@ public class AttackListFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this,
                 new AttackListViewModel.Factory(
                         new AttackListRepository(AppDataBase.get(getActivity().getApplicationContext()).getEpiAttackDao()),
-                        new AttackItemMapper()))
+                        new AttackItemMapper(getActivity())))
                 .get(AttackListViewModel.class);
         mViewModel.getLiveData().observe(this, viewData ->
         {//TODO

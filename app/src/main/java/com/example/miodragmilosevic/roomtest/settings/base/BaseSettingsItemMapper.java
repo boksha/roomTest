@@ -2,14 +2,14 @@ package com.example.miodragmilosevic.roomtest.settings.base;
 
 import android.content.Context;
 
-import com.example.miodragmilosevic.roomtest.base.ToMapper;
-import com.example.miodragmilosevic.roomtest.db.entity.EpiAttackType;
+import com.example.miodragmilosevic.roomtest.base.Mapper;
+import com.example.miodragmilosevic.roomtest.settings.base.BaseSettingsItem;
 
 /**
  * Created by miodrag.milosevic on 2/14/2018.
  */
 
-public abstract class BaseSettingsItemMapper<T> extends ToMapper<BaseSettingsItem, T> {
+public abstract class BaseSettingsItemMapper<T> extends Mapper<BaseSettingsItem, T> {
 
     protected final Context mApplicationContext;
 
@@ -20,4 +20,7 @@ public abstract class BaseSettingsItemMapper<T> extends ToMapper<BaseSettingsIte
 
     @Override
     public abstract BaseSettingsItem map(T type);
+
+    @Override
+    public abstract T reverseMap(BaseSettingsItem item);
 }

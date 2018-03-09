@@ -34,4 +34,10 @@ public class AdjustAttackTypeRepository extends BaseSettingsRepository<EpiAttack
     public Completable resetToDefault() {
         return Completable.fromAction(()->mEpiAttackResourceDao.resetAttackTypesToDefault());
     }
+
+    @Override
+    public Completable addNewItem(EpiAttackType item) {
+        return Completable.fromAction(()->mEpiAttackResourceDao.insertType(item));
+
+    }
 }

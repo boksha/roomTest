@@ -36,4 +36,9 @@ public class AdjustAttackLocationRepository extends BaseSettingsRepository<EpiAt
             return Completable.fromAction(()->mEpiAttackResourceDao.resetAttackLocationToDefault());
         }
 
+    @Override
+    public Completable addNewItem(EpiAttackLocation item) {
+        return Completable.fromAction(()->mEpiAttackResourceDao.insertLocation(item));
+    }
+
 }

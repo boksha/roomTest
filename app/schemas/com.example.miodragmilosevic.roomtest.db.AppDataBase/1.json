@@ -2,7 +2,7 @@
   "formatVersion": 1,
   "database": {
     "version": 1,
-    "identityHash": "1df0ff85f5a356885d6bf85e376df4c1",
+    "identityHash": "7c8d563dfad95f88d0d2c6985898707c",
     "entities": [
       {
         "tableName": "attack_types",
@@ -39,12 +39,21 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_attack_types_attack_type",
+            "unique": true,
+            "columnNames": [
+              "attack_type"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_attack_types_attack_type` ON `${TABLE_NAME}` (`attack_type`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
         "tableName": "epi_attacks",
-        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `startTime` INTEGER NOT NULL, `elapsedTime` INTEGER NOT NULL, `attackLocation` TEXT, `medicament` TEXT, `activity` TEXT, `attackType` TEXT, `description` TEXT)",
+        "createSql": "CREATE TABLE IF NOT EXISTS `${TABLE_NAME}` (`id` INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, `start_time` INTEGER NOT NULL, `elapsed_time` INTEGER NOT NULL, `attack_location_id` INTEGER NOT NULL, `medicament` TEXT, `activity_id` INTEGER NOT NULL, `attack_type_id` INTEGER NOT NULL, `attack_cause_id` INTEGER NOT NULL, `description` TEXT, FOREIGN KEY(`activity_id`) REFERENCES `attack_activities`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`attack_type_id`) REFERENCES `attack_types`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`attack_cause_id`) REFERENCES `attack_causes`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION , FOREIGN KEY(`attack_location_id`) REFERENCES `attack_locations`(`id`) ON UPDATE NO ACTION ON DELETE NO ACTION )",
         "fields": [
           {
             "fieldPath": "id",
@@ -54,21 +63,21 @@
           },
           {
             "fieldPath": "startTime",
-            "columnName": "startTime",
+            "columnName": "start_time",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
             "fieldPath": "elapsedTime",
-            "columnName": "elapsedTime",
+            "columnName": "elapsed_time",
             "affinity": "INTEGER",
             "notNull": true
           },
           {
-            "fieldPath": "attackLocation",
-            "columnName": "attackLocation",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "attackLocationId",
+            "columnName": "attack_location_id",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "medicament",
@@ -77,16 +86,22 @@
             "notNull": false
           },
           {
-            "fieldPath": "activity",
-            "columnName": "activity",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "activityId",
+            "columnName": "activity_id",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
-            "fieldPath": "attackType",
-            "columnName": "attackType",
-            "affinity": "TEXT",
-            "notNull": false
+            "fieldPath": "attackTypeId",
+            "columnName": "attack_type_id",
+            "affinity": "INTEGER",
+            "notNull": true
+          },
+          {
+            "fieldPath": "attackCauseId",
+            "columnName": "attack_cause_id",
+            "affinity": "INTEGER",
+            "notNull": true
           },
           {
             "fieldPath": "description",
@@ -102,7 +117,52 @@
           "autoGenerate": true
         },
         "indices": [],
-        "foreignKeys": []
+        "foreignKeys": [
+          {
+            "table": "attack_activities",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "activity_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "attack_types",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "attack_type_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "attack_causes",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "attack_cause_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          },
+          {
+            "table": "attack_locations",
+            "onDelete": "NO ACTION",
+            "onUpdate": "NO ACTION",
+            "columns": [
+              "attack_location_id"
+            ],
+            "referencedColumns": [
+              "id"
+            ]
+          }
+        ]
       },
       {
         "tableName": "attack_locations",
@@ -139,7 +199,16 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_attack_locations_attack_location",
+            "unique": true,
+            "columnNames": [
+              "attack_location"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_attack_locations_attack_location` ON `${TABLE_NAME}` (`attack_location`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
@@ -177,7 +246,16 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_attack_activities_attack_activity",
+            "unique": true,
+            "columnNames": [
+              "attack_activity"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_attack_activities_attack_activity` ON `${TABLE_NAME}` (`attack_activity`)"
+          }
+        ],
         "foreignKeys": []
       },
       {
@@ -215,13 +293,22 @@
           ],
           "autoGenerate": true
         },
-        "indices": [],
+        "indices": [
+          {
+            "name": "index_attack_causes_attack_cause",
+            "unique": true,
+            "columnNames": [
+              "attack_cause"
+            ],
+            "createSql": "CREATE UNIQUE INDEX `index_attack_causes_attack_cause` ON `${TABLE_NAME}` (`attack_cause`)"
+          }
+        ],
         "foreignKeys": []
       }
     ],
     "setupQueries": [
       "CREATE TABLE IF NOT EXISTS room_master_table (id INTEGER PRIMARY KEY,identity_hash TEXT)",
-      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"1df0ff85f5a356885d6bf85e376df4c1\")"
+      "INSERT OR REPLACE INTO room_master_table (id,identity_hash) VALUES(42, \"7c8d563dfad95f88d0d2c6985898707c\")"
     ]
   }
 }

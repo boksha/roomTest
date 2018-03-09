@@ -7,7 +7,7 @@ import android.arch.persistence.room.RoomDatabase;
 import android.content.Context;
 import android.support.annotation.NonNull;
 
-import com.example.miodragmilosevic.roomtest.ResourceProvider;
+import com.example.miodragmilosevic.roomtest.common.ResourceProvider;
 import com.example.miodragmilosevic.roomtest.db.dao.EpiAttackDao;
 import com.example.miodragmilosevic.roomtest.db.dao.EpiAttackResourceDao;
 import com.example.miodragmilosevic.roomtest.db.entity.EpiAttack;

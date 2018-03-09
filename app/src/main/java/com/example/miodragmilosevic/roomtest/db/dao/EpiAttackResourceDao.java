@@ -26,16 +26,16 @@ public interface EpiAttackResourceDao {
     @Query("SELECT * FROM attack_types")
     Single<List<EpiAttackType>> getAllAttackTypes();
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     void insertType(EpiAttackType... attackType);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     void insertLocation(EpiAttackLocation... attackLocation);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT)
     void insertActivity(EpiAttackActivity... attackActivity);
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    @Insert(onConflict = OnConflictStrategy.ABORT )
     void insertCause(EpiAttackCause... attackCause);
     @Update
     void update(EpiAttackType... attackType);

@@ -8,6 +8,12 @@
     <string name="btn_start_attack">START</string>
     <string name="btn_stop_attack">STOP</string>
     <string name="title_date_of_attack">Datum napada</string>
+    <string name="title_location_of_attack">Lokacija</string>
+    <string name="title_description_of_attack">Opis</string>
+    <string name="title_medicament_name">Naziv leka</string>
+    <string name="title_possible_cause">Mogući uzrok</string>
+    <string name="title_attack_type">Vrsta napada</string>
+    <string name="title_activity">Aktivnost</string>
     <string name="hint_choose_date">Izaberi datum</string>
     <string name="title_attack_duration">Trajanje</string>
     <string name="hint_choose_time">Izabari trajanje</string>
@@ -106,5 +112,19 @@
     <string name="action_add_new">dodaj novi</string>
     <string name="action_attacks_list">dodaj napad</string>
     <string name="btn_add_epi_attack">Dodaj napad</string>
+    <string name="title_reminder">podsetnik</string>
+    <string name="ok">ok</string>
+    <string name="cancel">otkaži</string>
+    <string name="title_add_new_cause_dialog">Dodajte novi uzrok napada</string>
+    <string name="title_add_new_acttivity_dialog">Dodaj novu aktivnost</string>
+    <string name="title_add_new_location_dialog">Dodaj novu lokaciju</string>
+    <string name="title_add_new_attack_type_dialog">Dodaj novi tip napada</string>
+    <string name="title_dialog_delete_all">Brisanje</string>
+    <string name="message_delete_all">Da li zelite da obrisete sve napade?</string>
+    <string name="title_dialog_delete">Brisanje</string>
+    <string name="message_delete">Da li zelite da obrisete napad?</string>
+
+    <string name="toast_delete_all_completed">podatci su obrisani</string>
+    <string name="toast_delete_all_failed">brisanje nije uspelo</string>
 
 </resources>

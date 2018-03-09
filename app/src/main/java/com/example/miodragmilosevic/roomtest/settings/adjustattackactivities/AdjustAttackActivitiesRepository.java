@@ -32,4 +32,9 @@ class AdjustAttackActivitiesRepository extends BaseSettingsRepository<EpiAttackA
     public Completable resetToDefault() {
         return Completable.fromAction(()->mEpiAttackResourceDao.resetAttackActivitiesToDefault());
     }
+
+    @Override
+    public Completable addNewItem(EpiAttackActivity item) {
+        return Completable.fromAction(()->mEpiAttackResourceDao.insertActivity(item));
+    }
 }

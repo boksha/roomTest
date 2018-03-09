@@ -2,130 +2,241 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/container"
-    android:fitsSystemWindows="true"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true">
+    <!--TODO Create styles for textviews edittext spinners etc...!!!MIKI-->
     <!-- Load the toolbar here -->
     <include
-        layout="@layout/toolbar_main"
         android:id="@+id/toolbar_container"
+        layout="@layout/toolbar_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content" />
+
     <ScrollView
         android:id="@+id/scroll_view"
-        android:layout_below="@id/toolbar_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@+id/btn_save_epy_attack"
-        tools:context="com.example.miodragmilosevic.roomtest.mainscreen.MainActivity">
+        android:layout_below="@id/toolbar_container"
+        android:paddingLeft="16dp"
+        android:paddingRight="16dp"
+        tools:context="com.example.miodragmilosevic.roomtest.startattack.StartAttackActivity">
 
         <RelativeLayout
             android:id="@+id/main_view"
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:paddingBottom="@dimen/bottom_button_height">
 
             <TextView
                 android:id="@+id/date_title"
+                style="@style/GrayBlueSubtitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/title_date_of_attack" />
 
-            <EditText
-                android:id="@+id/date_value"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/date_container"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_alignLeft="@id/date_title"
                 android:layout_below="@id/date_title"
-                android:layout_marginTop="16dp"
-                android:focusable="false"
-                android:hint="@string/hint_choose_date" />
+                android:layout_marginTop="8dp"
+                android:background="@color/pale_gray"
+                android:orientation="horizontal">
 
-            <Button
-                android:id="@+id/btn_pick_date"
-                android:layout_width="wrap_content"
+                <EditText
+                    android:id="@+id/date_value"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:focusable="false"
+                    android:hint="@string/hint_choose_date" />
+
+                <ImageView
+                    android:id="@+id/btn_pick_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:background="@drawable/ic_arrow_drop_down"
+                    android:padding="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/duration_location_container"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignTop="@id/date_value"
-                android:layout_toRightOf="@id/date_value"
-                android:text="Izaberi" />
+                android:layout_below="@id/date_container"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/time_title"
+                        style="@style/GrayBlueSubtitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_attack_duration" />
+
+                    <LinearLayout
+                        android:id="@+id/time_container"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignLeft="@id/time_title"
+                        android:layout_below="@id/time_title"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/pale_gray"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/time_value"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:focusable="false"
+                            android:hint="@string/hint_choose_time" />
+
+                        <ImageView
+                            android:id="@+id/btn_pick_time"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_vertical"
+                            android:background="@drawable/ic_arrow_drop_down" />
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="4dp"
+
+                    android:layout_weight="1">
+
+                    <TextView
+                        android:id="@+id/location_title"
+                        style="@style/GrayBlueSubtitleText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/title_location_of_attack" />
+
+                    <Spinner
+                        android:id="@+id/location_spinner"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_below="@id/location_title"
+                        android:layout_marginTop="8dp"
+                        android:background="@color/pale_gray" />
+                </RelativeLayout>
+            </LinearLayout>
 
             <TextView
-                android:id="@+id/time_title"
+                android:id="@+id/note_title"
+                style="@style/GrayBlueSubtitleText"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/date_value"
+                android:layout_below="@id/duration_location_container"
                 android:layout_marginTop="16dp"
-                android:text="@string/title_attack_duration" />
-
-            <EditText
-                android:id="@+id/time_value"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/time_title"
-                android:layout_below="@id/time_title"
-                android:layout_marginTop="8dp"
-                android:focusable="false"
-                android:hint="@string/hint_choose_time" />
-
-            <Button
-                android:id="@+id/btn_pick_time"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignTop="@id/time_value"
-                android:layout_toRightOf="@id/time_value"
-                android:text="Izaberi" />
-
-            <Spinner
-                android:id="@+id/location_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/time_title"
-                android:layout_below="@id/time_value"
-                android:layout_marginTop="16dp" />
-
-            <Spinner
-                android:id="@+id/cure_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/time_title"
-                android:layout_below="@id/location_spinner"
-                android:layout_marginTop="16dp" />
-
-            <Spinner
-                android:id="@+id/possible_cause_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/time_title"
-                android:layout_below="@id/cure_spinner"
-                android:layout_marginTop="16dp" />
-
-            <Spinner
-                android:id="@+id/activity_spinner"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/time_title"
-                android:layout_below="@id/possible_cause_spinner"
-                android:layout_marginTop="16dp" />
+                android:text="@string/title_description_of_attack" />
 
             <EditText
                 android:id="@+id/note"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_alignLeft="@id/time_title"
-                android:layout_below="@id/activity_spinner"
+                android:layout_below="@id/note_title"
                 android:layout_marginTop="8dp"
-                android:hint="@string/hint_attack_description" />
+                android:background="@color/pale_gray"
+                android:hint="@string/hint_attack_description"
+                android:minHeight="84dp" />
+
+            <TextView
+                android:id="@+id/medicament_title"
+                style="@style/GrayBlueSubtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/note"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_medicament_name" />
+
+            <Spinner
+                android:id="@+id/cure_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"
+
+                android:layout_alignLeft="@id/duration_location_container"
+                android:layout_below="@id/medicament_title"
+                android:layout_marginTop="16dp"
+                android:background="@color/pale_gray" />
+
+            <TextView
+                android:id="@+id/attack_type_title"
+                style="@style/GrayBlueSubtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/cure_spinner"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_attack_type" />
+
+            <Spinner
+                android:id="@+id/attack_type_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"
+                android:layout_below="@id/attack_type_title"
+                android:layout_marginTop="8dp"
+                android:background="@color/pale_gray" />
+
+            <TextView
+                android:id="@+id/possible_cause_title"
+                style="@style/GrayBlueSubtitleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/attack_type_spinner"
+                android:layout_marginTop="16dp"
+                android:text="@string/title_possible_cause" />
+
+            <Spinner
+                android:id="@+id/possible_cause_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"
+
+                android:layout_below="@id/possible_cause_title"
+                android:layout_marginTop="8dp"
+                android:background="@color/pale_gray" />
+
+            <TextView
+                android:id="@+id/activity_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/possible_cause_spinner"
+                android:layout_marginTop="16dp"
+                style="@style/GrayBlueSubtitleText"
+                android:text="@string/title_activity"
+                 />
+
+            <Spinner
+                android:id="@+id/activity_spinner"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/spinner_height"
+                android:layout_below="@id/activity_title"
+                android:layout_marginTop="16dp"
+                android:background="@color/pale_gray" />
+
+
         </RelativeLayout>
     </ScrollView>
 
     <Button
         android:id="@id/btn_save_epy_attack"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/bottom_button_height"
+        style="@style/BottomButton"
         android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_semibold_fonts"
-        android:background="@drawable/blue_gradient"
-        android:textColor="@color/white"
-        android:textSize="14dp"
         android:text="@string/btn_save_epi_attack" />
+
 </RelativeLayout>
 

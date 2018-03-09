@@ -24,12 +24,8 @@
     <Button
         android:id="@id/btn_add_epy_attack"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/bottom_button_height"
         android:layout_alignParentBottom="true"
-        android:fontFamily="@font/montserrat_semibold_fonts"
-        android:background="@drawable/blue_gradient"
-        android:textColor="@color/white"
-        android:textAllCaps="true"
-        android:textSize="14dp"
+        style="@style/BottomButton"
         android:text="@string/btn_add_epi_attack" />
 </RelativeLayout>

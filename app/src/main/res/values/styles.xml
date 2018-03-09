@@ -1,34 +1,44 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
-    <style name="AppThemeFullScreen" parent="Theme.AppCompat.NoActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-    </style>
     <style name="AppThemeWithToolBar" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
-        <item name="listPreferredItemPaddingLeft">32dp</item>
     </style>
 
-    <style name="TextAppearanceDrawerTitle">
-        <item name="android:textColor">@color/white_40</item>
-        <item name="android:textSize">16dp</item>
+    <style name="AppThemeOverlayNavigationDrawer" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="android:textColorSecondary">@color/white_40</item>
+        <item name="listPreferredItemPaddingLeft">32dp</item>
     </style>
 
     <!-- This configures the styles for the title within the Toolbar  -->
     <style name="Toolbar.TitleText" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
         <item name="android:textSize">16dp</item>
         <item name="android:fontFamily">@font/montserrat_semibold_fonts</item>
+    </style>
+
+    <style name="GrayBlueSubtitleText" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">@color/gray_blue</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">12dp</item>
+        <item name="android:fontFamily">@font/montserrat_semibold_fonts</item>
+    </style>
+
+    <style name="BottomButton" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:background">@drawable/blue_gradient</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textSize">14dp</item>
+        <item name="android:fontFamily">@font/montserrat_semibold_fonts</item>
+    </style>
+
+    <style name="LeftBottomButton" parent="BottomButton">
+        <item name="android:background">@drawable/left_blue_gradient</item>
+    </style>
+    <style name="RightBottomButton" parent="BottomButton">
+        <item name="android:background">@drawable/right_blue_gradient</item>
     </style>
 </resources>

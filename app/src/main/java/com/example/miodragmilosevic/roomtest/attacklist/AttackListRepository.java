@@ -2,6 +2,7 @@ package com.example.miodragmilosevic.roomtest.attacklist;
 
 import com.example.miodragmilosevic.roomtest.db.dao.EpiAttackDao;
 import com.example.miodragmilosevic.roomtest.db.entity.EpiAttack;
+import com.example.miodragmilosevic.roomtest.db.entity.EpiAttackModel;
 
 import java.util.List;
 
@@ -22,8 +23,8 @@ public class AttackListRepository {
     }
 
 
-    public Observable<List<EpiAttack>> getEpiAttacks( ){
-        return mEpiAttackDao.getAllAttacks().toObservable();
+    public Observable<List<EpiAttackModel>> getEpiAttacks( ){
+        return mEpiAttackDao.getAllAttacksJoined().toObservable();
     }
 
 }

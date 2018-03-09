@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 public abstract class ToMapper<To, From> {
 
-    public abstract To map(From type);
+    public abstract To map(From item);
 
     public List<To> mapList(List<From> typeList){
 

@@ -93,6 +93,23 @@ public class BaseSettingsViewModel<T> extends BaseViewModel {
                 }));
     }
 
+    public void onAddItemButtonClick(String item) {
+        mDisposableList.add(mBaseSettingsRepository.addNewItem(mMapper.reverseMap(new BaseSettingsItem(item))  )
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableCompletableObserver() {
+                    @Override
+                    public void onComplete() {
+                        Log.i(TAG, "resetToDefault onComplete: " );
+
+                    }
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "resetToDefault onError: " + e);
+                    }
+                }));
+    }
+
     public static class Factory extends ViewModelProvider.NewInstanceFactory {
 
         private BaseSettingsRepository mBaseSettingsRepository;

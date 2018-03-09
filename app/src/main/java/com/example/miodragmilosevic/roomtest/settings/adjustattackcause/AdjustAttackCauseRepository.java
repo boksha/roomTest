@@ -34,4 +34,9 @@ public class AdjustAttackCauseRepository extends BaseSettingsRepository<EpiAttac
     public Completable resetToDefault() {
         return Completable.fromAction(() -> mEpiAttackResourceDao.resetAttackCausesToDefault());
     }
+
+    @Override
+    public Completable addNewItem(EpiAttackCause item) {
+        return Completable.fromAction(()->mEpiAttackResourceDao.insertCause(item));
+    }
 }

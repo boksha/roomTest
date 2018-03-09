@@ -11,18 +11,18 @@
         android:supportsRtl="true"
         android:theme="@style/AppThemeWithToolBar">
         <activity
-            android:name=".mainscreen.MainActivity"
+            android:name=".startattack.StartAttackActivity"
             android:label="@string/app_name" />
         <activity
-            android:parentActivityName=".mainscreen.MainActivity"
+            android:parentActivityName=".startattack.StartAttackActivity"
             android:name=".createattackrecord.CreateAttackRecordActivity" />
         <activity android:name=".attackdetails.AttackDetailsActivity"
-            android:parentActivityName=".mainscreen.MainActivity"
+            android:parentActivityName=".startattack.StartAttackActivity"
             android:label="@string/title_attack_details"
             />
         <activity
             android:name=".launchscreen.LauncherActivity"
-            android:theme="@style/AppThemeFullScreen">
+            >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -32,7 +32,7 @@
         <activity
             android:name=".settings.SettingsListActivity"
             android:label="@string/title_settings_list"
-            android:parentActivityName=".mainscreen.MainActivity" />
+            android:parentActivityName=".startattack.StartAttackActivity" />
         <activity
             android:name=".settings.adjustattacktypes.AdjustAttackTypesActivity"
             android:label="@string/title_settings_attack_types"
@@ -59,7 +59,7 @@
             android:parentActivityName=".settings.SettingsListActivity" />
         <activity
             android:label="@string/title_attack_list"
-            android:parentActivityName=".mainscreen.MainActivity"
+            android:parentActivityName=".startattack.StartAttackActivity"
             android:name=".attacklist.AttacksListActivity" />
     </application>
 

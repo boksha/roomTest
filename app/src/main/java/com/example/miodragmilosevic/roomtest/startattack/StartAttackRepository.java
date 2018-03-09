@@ -1,7 +1,12 @@
 package com.example.miodragmilosevic.roomtest.startattack;
 
+import com.example.miodragmilosevic.roomtest.db.dao.EpiAttackDao;
+import com.example.miodragmilosevic.roomtest.db.dao.EpiAttackResourceDao;
+import com.example.miodragmilosevic.roomtest.db.entity.EpiAttack;
+
 import java.util.concurrent.TimeUnit;
 
+import io.reactivex.Completable;
 import io.reactivex.Observable;
 
 /**
@@ -9,7 +14,18 @@ import io.reactivex.Observable;
  */
 
 public class StartAttackRepository {
+
     private static final int ONE_SECOND_DELAY_MILLIS = 1000;
+    private EpiAttackDao mEpiAttackDao;
+
+    public StartAttackRepository(EpiAttackDao dao) {
+        mEpiAttackDao = dao;
+    }
+
+
+    public Completable deleteAll(){
+        return Completable.fromAction(()-> mEpiAttackDao.deleteAll());
+    }
 
     public Observable<Long> getElapsedTimeMillis(){
         return Observable.interval(0, ONE_SECOND_DELAY_MILLIS, TimeUnit.MILLISECONDS)

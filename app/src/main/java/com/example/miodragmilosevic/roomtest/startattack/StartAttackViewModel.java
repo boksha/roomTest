@@ -8,12 +8,15 @@ import android.support.annotation.NonNull;
 import android.util.Log;
 
 import com.example.miodragmilosevic.roomtest.base.BaseViewModel;
+import com.example.miodragmilosevic.roomtest.createattackrecord.CreateAttackUiState;
 
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.observers.DisposableCompletableObserver;
 import io.reactivex.observers.DisposableObserver;
 import io.reactivex.schedulers.Schedulers;
 
+import static com.example.miodragmilosevic.roomtest.startattack.StartAttackUiModel.ERROR;
 import static com.example.miodragmilosevic.roomtest.startattack.StartAttackUiModel.INACTIVE;
 import static com.example.miodragmilosevic.roomtest.startattack.StartAttackUiModel.IN_PROCESSING;
 import static com.example.miodragmilosevic.roomtest.startattack.StartAttackUiModel.STARTED;
@@ -78,6 +81,32 @@ public class StartAttackViewModel extends BaseViewModel {
     public void setDefaultState() {
         mViewData.setValue(new StartAttackUiModel(INACTIVE, 0, -1));
     }
+
+    public void onDeleteAllButtonClick() {
+
+        mDisposableList.add(mStartAttackRepository.deleteAll().subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread()).subscribeWith(new DisposableCompletableObserver() {
+
+                    @Override
+                    public void onError(Throwable e) {
+                        Log.i(TAG, "delete all onError: " + e.getMessage());
+                        updateState(ERROR);
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        Log.i(TAG, "deleteAll onComplete: ");
+                       updateState(StartAttackUiModel.DELETE_COMPLETED);
+                    }
+                }));
+    }
+
+    private void updateState(@StartAttackUiModel.State int state) {
+        StartAttackUiModel model = mViewData.getValue();
+        model.setState(state);
+        mViewData.setValue(model);
+    }
+
 
     static class Factory extends ViewModelProvider.NewInstanceFactory {
 

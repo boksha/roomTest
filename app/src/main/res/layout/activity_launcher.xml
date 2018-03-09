@@ -5,14 +5,15 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:background="#FF9444"
+    android:background="@drawable/blue_gradient"
     tools:context="com.example.miodragmilosevic.roomtest.launchscreen.LauncherActivity">
     <TextView
         android:text="@string/launch_screen_message"
         android:textAllCaps="true"
         android:layout_centerInParent="true"
-        android:textStyle="bold"
         android:textSize="20dp"
+        android:textColor="@color/white_40"
+        android:fontFamily="@font/montserrat_semibold_fonts"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 

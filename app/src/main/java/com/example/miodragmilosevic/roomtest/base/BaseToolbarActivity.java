@@ -1,5 +1,6 @@
 package com.example.miodragmilosevic.roomtest.base;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -27,6 +28,19 @@ public abstract class BaseToolbarActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayShowTitleEnabled(false);
         mTitle = findViewById(R.id.toolbar_title);
     }
+
+    //add this if slide entry exit transitions are needed
+    //    @Override
+//    public void startActivity(Intent intent) {
+//        super.startActivity(intent);
+//        overridePendingTransition(R.anim.slide_in_left_to_right,R.anim.slide_out_left_to_right);
+//    }
+//
+//    @Override
+//    public void finish() {
+//        super.finish();
+//        overridePendingTransition(R.anim.slide_in_right_to_left,R.anim.slide_out_right_to_left);
+//    }
 
     protected abstract int getLayoutId();
 }

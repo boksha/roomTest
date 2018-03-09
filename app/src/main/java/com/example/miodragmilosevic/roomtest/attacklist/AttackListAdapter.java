@@ -45,8 +45,8 @@ public class AttackListAdapter  extends
             AttackListItemUiModel attackItem = mItems.get(position);
             viewHolder.attackDuration.setText((attackItem.getElapsedTime()));
             viewHolder.attackTitle.setText(attackItem.getAttackTitle());
-            viewHolder.attackDayOfMonth.setText("21");
-            viewHolder.attackDayOfWeek.setText("Sre");
+            viewHolder.attackDayOfWeek.setText(attackItem.getDayOfWeek());
+            viewHolder.attackDayOfMonth.setText(String.valueOf(attackItem.getDayOfMonth()));
             viewHolder.attackLayout.setOnClickListener(view -> {
                 if (mOnItemClickListener != null) {
                     mOnItemClickListener.onItemClick(mItems.get(position).getId());

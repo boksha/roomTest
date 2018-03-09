@@ -7,6 +7,7 @@ import android.util.Log;
 import com.example.miodragmilosevic.roomtest.R;
 import com.example.miodragmilosevic.roomtest.db.AppDataBase;
 import com.example.miodragmilosevic.roomtest.db.entity.EpiAttackCause;
+import com.example.miodragmilosevic.roomtest.settings.AddNewItemDialog;
 import com.example.miodragmilosevic.roomtest.settings.base.BaseSettingsActivity;
 import com.example.miodragmilosevic.roomtest.settings.base.BaseSettingsViewModel;
 
@@ -23,7 +24,7 @@ public class AdjustAttackCauseActivity extends BaseSettingsActivity<EpiAttackCau
         mViewModel = ViewModelProviders.of(this,
                 new BaseSettingsViewModel.Factory(
                         new AdjustAttackCauseRepository(AppDataBase.get(getApplicationContext()).getEpiAttackResourceDao()),
-                        new AdjustAttackCausesItemMapper(getApplicationContext())
+                        new AdjustAttackCauseSettingsItemMapper(getApplicationContext())
                 )
         )
                 .get(BaseSettingsViewModel.class);
@@ -35,6 +36,15 @@ public class AdjustAttackCauseActivity extends BaseSettingsActivity<EpiAttackCau
         mListView.setOnItemClickListener((parent, view, position, id) -> {
             mViewModel.onDeleteItemButtonClick(mAdapter.getItem(position));
         });
+        mOnAddItemListener = item -> {
+            Log.i("Miki","add new Item "+ item);
+            mViewModel.onAddItemButtonClick(item);
+        };
+    }
+
+    @Override
+    protected AddNewItemDialog createAddNewItemDialog() {
+      return AddNewItemDialog.newInstance(R.string.title_add_new_cause_dialog,R.drawable.ic_alarm_add_40);
     }
 
     @Override

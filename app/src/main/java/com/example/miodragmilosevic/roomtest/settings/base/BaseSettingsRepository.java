@@ -25,4 +25,6 @@ public abstract class BaseSettingsRepository<T> {
     public abstract Completable removeFromDisplayList(long id);
 
     public abstract Completable resetToDefault();
+
+    public abstract Completable addNewItem(T item);
 }

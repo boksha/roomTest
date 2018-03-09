@@ -4,16 +4,16 @@
         android:title="@string/drawer_subtitle_personal_data">
         <menu>
             <item
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_01"
                 android:id="@+id/nav_personal_info"
                 android:title="@string/drawer_item_personal_info" />
 
             <item
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_02"
                 android:id="@+id/nav_illnes_history"
                 android:title="@string/drawer_item_illness_history" />
             <item
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_03"
                 android:id="@+id/nav_previous_therapy"
                 android:title="@string/drawer_item_therapy" />
             <!--<item-->
@@ -23,12 +23,12 @@
 
 
             <item
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_04"
                 android:id="@+id/nav_epi_factors"
                 android:title="@string/drawer_item_epi_factors" />
 
             <item
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_05"
                 android:id="@+id/nav_gathered_illness"
                 android:title="@string/drawer_item_gathered_illness" />
             <!--<item-->
@@ -57,7 +57,7 @@
                 android:title="@string/drawer_item_adjust_activities_before_attack" />
 
             <item
-                android:icon="@drawable/ic_home_black_24dp"
+                android:icon="@drawable/ic_add_white"
                 android:id="@+id/nav_adjust_possible_causes"
                 android:title="@string/drawer_item_adjust_possible_cause" />
 

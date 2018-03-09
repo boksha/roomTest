@@ -18,11 +18,13 @@ public class StartAttackUiModel {
     private long mStartTime;
 
     @Retention(SOURCE)
-    @IntDef({INACTIVE, STARTED, IN_PROCESSING})
+    @IntDef({INACTIVE, STARTED, IN_PROCESSING,ERROR,DELETE_COMPLETED})
     public @interface State {}
     public static final int INACTIVE = 0;
     public static final int STARTED = 1;
     public static final int IN_PROCESSING = 2;
+    public static final int ERROR = 3;
+    public static final int DELETE_COMPLETED = 4;
 
     public StartAttackUiModel(int state, long startTime, long elapsedTime) {
         this.mState = state;
@@ -61,7 +63,7 @@ public class StartAttackUiModel {
             c.setTimeInMillis(mElapsedTime);
             int min = c.get(Calendar.MINUTE);
             int sec = c.get(Calendar.SECOND);
-            return String.format("%02d:%02d",min,sec);
+            return String.format("%02d.%02d",min,sec);
         } else return "";
 
     }

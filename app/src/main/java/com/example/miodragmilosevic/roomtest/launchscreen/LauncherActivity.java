@@ -5,11 +5,9 @@ import android.os.Handler;
 import android.os.Looper;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Window;
-import android.view.WindowManager;
 
 import com.example.miodragmilosevic.roomtest.R;
-import com.example.miodragmilosevic.roomtest.mainscreen.MainActivity;
+import com.example.miodragmilosevic.roomtest.startattack.StartAttackActivity;
 import com.example.miodragmilosevic.roomtest.registration.RegistrationActivity;
 
 public class LauncherActivity extends AppCompatActivity {
@@ -25,7 +23,7 @@ public class LauncherActivity extends AppCompatActivity {
 
         if (true){
             mNextScreenRunnable = () -> {
-                Intent intent = new Intent(LauncherActivity.this, MainActivity.class);
+                Intent intent = new Intent(LauncherActivity.this, StartAttackActivity.class);
                 startActivity(intent);
                 finish();
             };

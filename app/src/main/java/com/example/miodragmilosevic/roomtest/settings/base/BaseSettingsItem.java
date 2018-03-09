@@ -13,7 +13,10 @@ public class BaseSettingsItem {
         mId = id;
         mName = name;
     }
-
+    public BaseSettingsItem(String name) {
+        mId = -1;
+        mName = name;
+    }
     public long getId() {
         return mId;
     }
