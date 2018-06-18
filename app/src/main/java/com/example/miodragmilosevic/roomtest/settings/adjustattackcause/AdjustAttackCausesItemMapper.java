@@ -25,4 +25,9 @@ class AdjustAttackCausesItemMapper extends BaseSettingsItemMapper<EpiAttackCause
         }
         return new BaseSettingsItem(item.getId(), name);
     }
+
+    @Override
+    public EpiAttackCause reverseMap(BaseSettingsItem item) {
+        return null;
+    }
 }

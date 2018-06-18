@@ -14,6 +14,8 @@ import android.widget.TextView;
 
 import com.example.miodragmilosevic.roomtest.R;
 import com.example.miodragmilosevic.roomtest.createattackrecord.CreateAttackRecordActivity;
+import com.example.miodragmilosevic.roomtest.createattackrecord.CreateAttackRepository;
+import com.example.miodragmilosevic.roomtest.db.AppDataBase;
 
 /**
  * Created by miodrag.milosevic on 1/25/2018.
@@ -62,7 +64,7 @@ public class StartAttackFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mViewModel = ViewModelProviders.of(this,
-                new StartAttackViewModel.Factory(new StartAttackRepository()))
+                new StartAttackViewModel.Factory(new StartAttackRepository((AppDataBase.get(getActivity()).getEpiAttackDao()))))
                 .get(StartAttackViewModel.class);
         mViewModel.getLiveData().observe(this, viewData ->
                 {

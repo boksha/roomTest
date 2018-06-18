@@ -24,4 +24,9 @@ class AdjustAttackLocationItemMapper extends BaseSettingsItemMapper<EpiAttackLoc
         }
         return new BaseSettingsItem(item.getId(), name);
     }
+
+    @Override
+    public EpiAttackLocation reverseMap(BaseSettingsItem item) {
+        return null;
+    }
 }

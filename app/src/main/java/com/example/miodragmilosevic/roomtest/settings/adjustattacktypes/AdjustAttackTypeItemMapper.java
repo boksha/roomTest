@@ -26,4 +26,9 @@ public class AdjustAttackTypeItemMapper extends BaseSettingsItemMapper<EpiAttack
         return new BaseSettingsItem(item.getId(), name);
     }
 
+    @Override
+    public EpiAttackType reverseMap(BaseSettingsItem item) {
+        return null;
+    }
+
 }
